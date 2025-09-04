@@ -1,0 +1,23 @@
+.header {
+    font-size: 3rem;
+    text-decoration: underline;
+}
+
+
+.board {
+    height: 620px;
+    width: 620px;
+    background-color: blueviolet;
+    border: solid 5px black;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(6,1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.pieces {
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+}
