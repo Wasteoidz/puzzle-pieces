@@ -29,9 +29,14 @@
 }
 
 
-/* .pieces {
-    background-color: blue;
-} */
+.emptyBox {
+    background-color: blueviolet;
+    height: 100px;
+    width: 100px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
 
 .piece-img {
     height: 100px;

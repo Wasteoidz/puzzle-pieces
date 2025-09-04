@@ -11,7 +11,7 @@ function showView(){
     <div class="board" 
         id="board" 
         ondragover="allowDrop(event)" 
-        ondrop="dropPiece(event)"
+        ondrop="drop(event)"
     ></div> <br/>
     <button onclick=getPieces(36)>Nytt spill</button> <br/><br/>
     <div class="puzzleBox" id="puzzleBox"></div>
@@ -32,6 +32,12 @@ function getPieces(times) {
     showView()
     for (let i = 0; i <times; i++) {
         document.getElementById('puzzleBox').innerHTML += `<div class="pieces">${randomPiece()}</div>`;
+        document.getElementById('board').innerHTML += `<div 
+                                                        id="emptyBox" 
+                                                        class="emptyBox" 
+                                                        ondrop="drop(event)" 
+                                                        ondragover="allowDrop(event)" 
+                                                        ></div>`;
         
     }    
  
@@ -48,7 +54,23 @@ function randomPiece() {
         class="piece-img"
         id="piece-${pieceNumber}"
         draggable = "true"
-        ondragstart="dragStart(event, ${pieceNumber})"
+        ondragstart="drag(event)"
         />`;    
 }
 
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+  
+function drag(ev) {
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+}
+  
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text/plain");
+    if (!ev.currentTarget.querySelector('img')) {
+        ev.currentTarget.append(document.getElementById(data));
+    }
+}
