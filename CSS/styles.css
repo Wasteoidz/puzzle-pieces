@@ -7,7 +7,7 @@
 .board {
     height: 620px;
     width: 620px;
-    background-color: blueviolet;
+    background-color:pink;
     border: solid 5px black;
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -16,8 +16,25 @@
     justify-items: center;
 }
 
-.pieces {
+.puzzleBox {
+    height: 420px;
+    width: 920px;
+    background-color: cyan;
+    border: solid 5px black;
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+
+/* .pieces {
     background-color: blue;
+} */
+
+.piece-img {
     height: 100px;
     width: 100px;
 }
+    
