@@ -50,7 +50,7 @@ function randomPiece(puzzleFolder) {
     let pieceNumber = pieces[randomPiecePosition];
     pieces.splice(randomPiecePosition, 1);
     return `<img 
-        src="CSS/bilder/${puzzleFolder}/${pieceNumber}.jpg" 
+        src="CSS/Bilder/${puzzleFolder}/${pieceNumber}.jpg" 
         alt="Piece ${pieceNumber}" 
         class="piece-img"
         id="piece-${pieceNumber}"
