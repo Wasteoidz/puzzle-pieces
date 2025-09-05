@@ -3,17 +3,20 @@
 
 
 
+
 //   View
 showView()
 function showView(){
     document.getElementById('app').innerHTML = /**html**/ `
-    <h1 class="header">Her skal det pussles!</h1>
+    <h1 class="header">Her skal det pusles!</h1>
     <div class="board" 
         id="board" 
         ondragover="allowDrop(event)" 
         ondrop="drop(event)"
     ></div> <br/>
-    <button onclick=getPieces(36)>Nytt spill</button> <br/><br/>
+    <button onclick=getPieces(36)>&#127752; Enhjørning &#128052;</button>
+    <button onclick=getPieces(36)>&#128571; Gabby &#128571;</button>
+    <button onclick=getPieces(36)>&#128054; Paw Patrol &#128054;</button><br/><br/>
     <div class="puzzleBox" id="puzzleBox"></div>
     
     `;
@@ -49,7 +52,7 @@ function randomPiece() {
     let pieceNumber = pieces[randomPiecePosition];
     pieces.splice(randomPiecePosition, 1);
     return `<img 
-        src="CSS/bilder/${pieceNumber}.jpg" 
+        src="CSS/bilder/unicorn/${pieceNumber}.jpg" 
         alt="Piece ${pieceNumber}" 
         class="piece-img"
         id="piece-${pieceNumber}"
@@ -61,7 +64,7 @@ function randomPiece() {
 
 function allowDrop(ev) {
     ev.preventDefault();
-  }
+}
   
 function drag(ev) {
     ev.dataTransfer.setData("text/plain", ev.target.id);
