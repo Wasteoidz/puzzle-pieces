@@ -26,8 +26,6 @@ function showView(){
 
 
 
-
-
 //   Controller
 
 function getPieces(times, puzzleFolder) {
@@ -60,7 +58,6 @@ function randomPiece(puzzleFolder) {
         ondragstart="drag(event)"
         />`;    
 }
-
 
 function allowDrop(ev) {
     ev.preventDefault();
