@@ -21,7 +21,7 @@ function showView(){
         <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
         <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button>
     </div>
-    
+        
     `;
 }
 
@@ -90,7 +90,7 @@ function drop(ev) {
 
 
 
-// ---- Touch-støtte, rykende fersk fra chat GPT ---- //
+// ---- Touch-støtte, rykende fersk fra chatGPT ---- //
 let draggedPiece = null;
 let ghostPiece = null;
 let offsetX = 0;
