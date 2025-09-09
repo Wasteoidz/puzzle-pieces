@@ -1,3 +1,16 @@
+body {
+    margin: 0%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.game { 
+    display: flex;               
+    justify-content: center;     
+    align-items: flex-start;     
+    gap: 10px;
+}
+
 .board {
     height: 620px;
     width: 620px;
@@ -10,6 +23,17 @@
     justify-items: center;
 }
 
+.puzzleBox {
+    height: 620px;
+    width: 620px;
+    background-color: cyan;
+    border: solid 5px black;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(6,1fr);;
+    align-items: center;
+    justify-items: center;
+}
 
 #tempPuzzleText {
     grid-column-start: 1;
@@ -22,25 +46,12 @@
 
 #tempBoxText{
     grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 1;
+    grid-column-end: 67;
+    grid-row-start: 3;
     grid-row-end: 4;
     text-align: center;
     font-size: 3rem;
 }
-
-.puzzleBox {
-    height: 420px;
-    width: 920px;
-    background-color: cyan;
-    border: solid 5px black;
-    display: grid;
-    grid-template-columns: repeat(9,1fr);
-    grid-template-rows: repeat(3,1fr);
-    align-items: center;
-    justify-items: center;
-}
-
 
 .emptyBox {
     background-color: blueviolet;
@@ -56,3 +67,8 @@
     width: 100px;
 }
     
+.knapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

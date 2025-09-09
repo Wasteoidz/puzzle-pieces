@@ -8,15 +8,19 @@
 showView()
 function showView(){
     document.getElementById('app').innerHTML = /**html**/ `
+    <div class="game">
         <div class="board" 
         id="board" 
         ondragover="allowDrop(event)" 
         ondrop="drop(event)"
-    ><h1 id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1></div> <br/>
-    <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
-    <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
-    <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button><br/><br/>
-    <div class="puzzleBox" id="puzzleBox"><h1 id="tempBoxText">&#128525; Her finner du puslebitene &#128525;</h1></div>
+        ><h1 id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1></div>
+        <div class="puzzleBox" id="puzzleBox"><h1 id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1></div> <br/>
+    </div>   
+    <div class="knapper"> 
+        <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
+        <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
+        <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button><br/><br/>
+    </div>
     
     `;
 }
