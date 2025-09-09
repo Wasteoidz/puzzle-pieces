@@ -82,52 +82,25 @@ function drop(ev) {
 
 
 
-// ---- Touch-støtte med flytting Rykende fersk fra ChatGPT ----
+// ---- Touch-støtte, rykende fersk fra chat GPT ----
 let draggedPiece = null;
-let ghostPiece = null;
-let offsetX = 0;
-let offsetY = 0;
 
 document.addEventListener("touchstart", function (e) {
     const target = e.target.closest(".piece-img");
     if (target) {
         draggedPiece = target;
-
-        // Få første finger
-        const touch = e.touches[0];
-        const rect = target.getBoundingClientRect();
-        offsetX = touch.clientX - rect.left;
-        offsetY = touch.clientY - rect.top;
-
-        // Lag et "ghost" element som følger fingeren
-        ghostPiece = target.cloneNode(true);
-        ghostPiece.style.position = "fixed";
-        ghostPiece.style.left = (touch.clientX - offsetX) + "px";
-        ghostPiece.style.top = (touch.clientY - offsetY) + "px";
-        ghostPiece.style.width = rect.width + "px";
-        ghostPiece.style.height = rect.height + "px";
-        ghostPiece.style.opacity = "0.7";
-        ghostPiece.style.pointerEvents = "none"; // ikke forstyrr pekeren
-        ghostPiece.style.zIndex = "9999";
-        document.body.appendChild(ghostPiece);
     }
-}, { passive: false });
-
-document.addEventListener("touchmove", function (e) {
-    if (!ghostPiece) return;
-    const touch = e.touches[0];
-    ghostPiece.style.left = (touch.clientX - offsetX) + "px";
-    ghostPiece.style.top = (touch.clientY - offsetY) + "px";
-}, { passive: false });
+}, { passive: true });
 
 document.addEventListener("touchend", function (e) {
-    if (!draggedPiece || !ghostPiece) return;
+    if (!draggedPiece) return;
 
     const touch = e.changedTouches[0];
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
 
-    const emptyBox = dropTarget?.closest(".emptyBox");
-    const board = dropTarget?.closest("#board");
+    // Sjekk om vi slapp over en droppsone
+    const emptyBox = dropTarget.closest(".emptyBox");
+    const board = dropTarget.closest("#board");
 
     if (emptyBox && !emptyBox.querySelector("img")) {
         emptyBox.appendChild(draggedPiece);
@@ -136,8 +109,5 @@ document.addEventListener("touchend", function (e) {
         board.appendChild(draggedPiece);
     }
 
-    // Fjern ghost etter slipp
-    ghostPiece.remove();
-    ghostPiece = null;
     draggedPiece = null;
 });
