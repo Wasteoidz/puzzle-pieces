@@ -19,7 +19,7 @@ function showView(){
     <div class="knapper"> 
         <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
         <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
-        <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button><br/><br/>
+        <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button>
     </div>
     
     `;
@@ -50,6 +50,10 @@ function getPieces(times, puzzleFolder) {
 }
 
 function resetPiece() {  //finne en måte å putt biten tilbake i esken//
+
+}
+
+function compleetePuzzle() { //finne en måte å autocompleete puzzle//
 
 }
 
