@@ -107,15 +107,14 @@ document.addEventListener("touchend", function (e) {
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
 
     const emptyBox = dropTarget?.closest(".emptyBox");
+    const board = document.getElementById("board");
 
-    if (emptyBox && !emptyBox.querySelector("img")) {
-        // ✅ Legg brikken i en tom grid-rute
+    // Only allow drop if emptyBox exists AND is inside the board
+    if (emptyBox && board.contains(emptyBox) && !emptyBox.querySelector("img")) {
         emptyBox.appendChild(draggedPiece);
     } else {
-        // ❌ Ugyldig drop → send tilbake til pusle-esken
         document.getElementById("puzzleBox").appendChild(draggedPiece);
     }
 
     draggedPiece = null;
 });
-
