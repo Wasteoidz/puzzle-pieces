@@ -37,16 +37,7 @@ body {
     justify-items: center;
 }
 
-#tempPuzzleText {
-    grid-column-start: 1;
-    grid-column-end: 67;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    text-align: center;
-    font-size: 3rem;
-}
-
-#tempBoxText{
+.tempText {
     grid-column-start: 1;
     grid-column-end: 67;
     grid-row-start: 3;

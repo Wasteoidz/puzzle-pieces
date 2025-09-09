@@ -13,8 +13,8 @@ function showView(){
         id="board" 
         ondragover="allowDrop(event)" 
         ondrop="drop(event)"
-        ><h1 id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1></div>
-        <div class="puzzleBox" id="puzzleBox"><h1 id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1></div> <br/>
+        ><h1 class="tempText"id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1></div>
+        <div class="puzzleBox" id="puzzleBox"><h1 class="tempText" id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1></div> <br/>
     </div>   
     <div class="knapper"> 
         <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
