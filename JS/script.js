@@ -82,7 +82,7 @@ function drop(ev) {
 
 
 
-// ---- Touch-støtte, rykende fersk fra chat GPT----
+// ---- Touch-støtte, rykende fersk fra chat GPT ---- //
 let draggedPiece = null;
 
 document.addEventListener("touchstart", function (e) {
