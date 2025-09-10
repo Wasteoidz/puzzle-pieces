@@ -110,64 +110,6 @@ function drop(ev) {
 
 
 // ---- Touch-støtte, rykende fersk fra chatGPT ---- //
-// document.addEventListener("touchstart", function (e) {
-//     const target = e.target.closest(".piece-img");
-//     if (target) {
-//         draggedPiece = target;
-
-//         const touch = e.touches[0];
-//         const rect = target.getBoundingClientRect();
-//         offsetX = touch.clientX - rect.left;
-//         offsetY = touch.clientY - rect.top;
-
-//         ghostPiece = target.cloneNode(true);
-//         ghostPiece.style.position = "fixed";
-//         ghostPiece.style.left = (touch.clientX - offsetX) + "px";
-//         ghostPiece.style.top = (touch.clientY - offsetY) + "px";
-//         ghostPiece.style.width = rect.width + "px";
-//         ghostPiece.style.height = rect.height + "px";
-//         ghostPiece.style.opacity = "0.7";
-//         ghostPiece.style.pointerEvents = "none";
-//         ghostPiece.style.zIndex = "9999";
-//         document.body.appendChild(ghostPiece);
-
-//         e.preventDefault(); // Prevent scroll
-//     }
-// }, { passive: false });
-
-// document.addEventListener("touchmove", function (e) {
-//     if (!ghostPiece) return;
-//     const touch = e.touches[0];
-//     ghostPiece.style.left = (touch.clientX - offsetX) + "px";
-//     ghostPiece.style.top = (touch.clientY - offsetY) + "px";
-//     e.preventDefault(); // Prevent scroll
-// }, { passive: false });
-
-// function cleanupGhost() {
-//     if (ghostPiece) ghostPiece.remove();
-//     ghostPiece = null;
-//     draggedPiece = null;
-// }
-
-// document.addEventListener("touchend", function (e) {
-//     if (!draggedPiece || !ghostPiece) return;
-
-//     const touch = e.changedTouches[0];
-//     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-//     const emptyBox = dropTarget?.closest(".emptyBox");
-//     const board = document.getElementById("board");
-
-//     if (emptyBox && board.contains(emptyBox) && !emptyBox.querySelector("img")) {
-//         emptyBox.appendChild(draggedPiece);
-//     } else {
-//         document.getElementById("puzzleBox").appendChild(draggedPiece);
-//     }
-
-//     cleanupGhost();
-// });
-
-// document.addEventListener("touchcancel", cleanupGhost);
-//ny test fra GPT
 let draggedPiece = null;
 let ghostPiece = null;
 let offsetX = 0;
@@ -226,7 +168,7 @@ document.addEventListener("touchend", function (e) {
     const dy = Math.abs(touch.clientY - startY);
 
     // 1. Hvis bare et trykk (ikke dra) → ikke flytt
-    if (dx < 10 && dy < 10) {
+    if (dx < 70 && dy < 70) {
         cleanupGhost();
         return;
     }
