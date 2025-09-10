@@ -24,6 +24,13 @@ function showView(){
         <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
         <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button>
     </div>
+    <div class="pusleKnapper"> 
+        <button class="knapp" onclick="getPieces(36,'minions')">&#129535; Minions &#129535;</button>
+        <button class="knapp" onclick="getPieces(36,'moana')">&#128131; Vaiana &#127821;</button>
+        <button class="knapp" onclick="getPieces(36,'frost')">&#10052; Frost &#10052;</button>
+        <button class="knapp" onclick="getPieces(36,'olaf')">&#9924; Olaf &#9924;</button>
+        <button class="knapp" onclick="getPieces(36,'biler')">&#128664; Biler &#128664;</button>
+    </div>
     
     <button class="jukseKnapp" onclick="compleetePuzzle()">fusk!</button>
         
