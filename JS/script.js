@@ -61,9 +61,9 @@ function resetPiece() {  //finne en måte å putt biten tilbake i esken//
 
 function compleetePuzzle() { //finne en måte å autocompleete puzzle//
     document.getElementById('board').innerHTML = "";
-
     for (let pieceNumber = 1; pieceNumber <= 36; pieceNumber++) {
-        document.getElementById('board').innerHTML += `<div class="emptyBox">
+        document.getElementById('board').innerHTML += `
+        <div class="emptyBox">
             <img 
                 src="CSS/Bilder/${currentPuzzleFolder}/${pieceNumber}.jpg" 
                 alt="Piece ${pieceNumber}" 
