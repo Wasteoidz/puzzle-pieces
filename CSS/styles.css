@@ -59,8 +59,13 @@ body {
     height: 100px;
     width: 100px;
 }
-    
-.knapper {
+
+.jukseKnapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pusleKnapper {
     margin-top: 5px;
     margin-left: 900px;
     display: flex;

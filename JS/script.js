@@ -1,4 +1,5 @@
 //Model
+let currentPuzzleFolder = null;
 
 
 
@@ -15,12 +16,13 @@ function showView(){
         ondrop="drop(event)"
         ><h1 class="tempText"id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1></div>
         <div class="puzzleBox" id="puzzleBox"><h1 class="tempText" id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1></div> <br/>
-    </div>   
-    <div class="knapper"> 
+    </div>
+    <div class="pusleKnapper"> 
         <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
         <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
         <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button>
     </div>
+    <button class="jukseKnapp" onclick="compleetePuzzle()">fusk!</button>
         
     `;
 }
@@ -32,6 +34,7 @@ function showView(){
 //   Controller
 
 function getPieces(times, puzzleFolder) {
+    currentPuzzleFolder = puzzleFolder;
     pieces = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
     showView()
     document.getElementById('tempPuzzleText').style.display = "none";
@@ -54,7 +57,20 @@ function resetPiece() {  //finne en måte å putt biten tilbake i esken//
 }
 
 function compleetePuzzle() { //finne en måte å autocompleete puzzle//
+    document.getElementById('board').innerHTML = "";
 
+    for (let pieceNumber = 1; pieceNumber <= 36; pieceNumber++) {
+        document.getElementById('board').innerHTML += `<div class="emptyBox">
+            <img 
+                src="CSS/Bilder/${currentPuzzleFolder}/${pieceNumber}.jpg" 
+                alt="Piece ${pieceNumber}" 
+                class="piece-img"
+                id="piece-${pieceNumber}"
+                draggable="true"
+                ondragstart="drag(event)"
+            />
+        </div>`;
+    }
 }
 
 function randomPiece(puzzleFolder) {
