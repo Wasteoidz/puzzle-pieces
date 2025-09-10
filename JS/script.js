@@ -43,9 +43,8 @@ function getPieces(times, puzzleFolder) {
     document.getElementById('tempPuzzleText').style.display = "none";
     document.getElementById('tempBoxText').style.display = "none";
     for (let i = 0; i <times; i++) {
-        document.getElementById('puzzleBox').innerHTML += `<div class="pieces">${randomPiece(puzzleFolder)}</div>`;
+        document.getElementById('puzzleBox').innerHTML += `<div class="emptyBox">${randomPiece(puzzleFolder)}</div>`;
         document.getElementById('board').innerHTML += `<div 
-                                                        id="emptyBox" 
                                                         class="emptyBox" 
                                                         ondrop="drop(event)" 
                                                         ondragover="allowDrop(event)" 
