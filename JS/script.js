@@ -226,7 +226,7 @@ document.addEventListener("touchend", function (e) {
     const dy = Math.abs(touch.clientY - startY);
 
     // 🔹 1. Hvis brukeren bare trykket (ikke dratt langt nok) → gjør ingenting
-    if (dx < 10 && dy < 10) {
+    if (dx < 25 && dy < 25) {
         cleanupGhost();
         return;
     }
