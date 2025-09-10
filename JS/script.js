@@ -100,7 +100,7 @@ function drag(ev) {
   
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text/plain");
+    let data = ev.dataTransfer.getData("text/plain");
     if (!ev.currentTarget.querySelector('img')) {
         ev.currentTarget.append(document.getElementById(data));
     }
@@ -167,7 +167,7 @@ document.addEventListener("touchend", function (e) {
     const dy = Math.abs(touch.clientY - startY);
 
     // 1. Hvis bare et trykk (ikke dra) → ikke flytt
-    if (dx < 70 && dy < 70) {
+    if (dx < 50 && dy < 50) {
         cleanupGhost();
         return;
     }
