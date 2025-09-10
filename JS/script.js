@@ -59,7 +59,7 @@ function resetPiece() {  //finne en måte å putt biten tilbake i esken//
 
 }
 
-function compleetePuzzle() { //finne en måte å autocompleete puzzle//
+function compleetePuzzle() { 
     document.getElementById('board').innerHTML = "";
     for (let pieceNumber = 1; pieceNumber <= 36; pieceNumber++) {
         document.getElementById('board').innerHTML += `
@@ -110,16 +110,85 @@ function drop(ev) {
 
 
 // ---- Touch-støtte, rykende fersk fra chatGPT ---- //
+// document.addEventListener("touchstart", function (e) {
+//     const target = e.target.closest(".piece-img");
+//     if (target) {
+//         draggedPiece = target;
+
+//         const touch = e.touches[0];
+//         const rect = target.getBoundingClientRect();
+//         offsetX = touch.clientX - rect.left;
+//         offsetY = touch.clientY - rect.top;
+
+//         ghostPiece = target.cloneNode(true);
+//         ghostPiece.style.position = "fixed";
+//         ghostPiece.style.left = (touch.clientX - offsetX) + "px";
+//         ghostPiece.style.top = (touch.clientY - offsetY) + "px";
+//         ghostPiece.style.width = rect.width + "px";
+//         ghostPiece.style.height = rect.height + "px";
+//         ghostPiece.style.opacity = "0.7";
+//         ghostPiece.style.pointerEvents = "none";
+//         ghostPiece.style.zIndex = "9999";
+//         document.body.appendChild(ghostPiece);
+
+//         e.preventDefault(); // Prevent scroll
+//     }
+// }, { passive: false });
+
+// document.addEventListener("touchmove", function (e) {
+//     if (!ghostPiece) return;
+//     const touch = e.touches[0];
+//     ghostPiece.style.left = (touch.clientX - offsetX) + "px";
+//     ghostPiece.style.top = (touch.clientY - offsetY) + "px";
+//     e.preventDefault(); // Prevent scroll
+// }, { passive: false });
+
+// function cleanupGhost() {
+//     if (ghostPiece) ghostPiece.remove();
+//     ghostPiece = null;
+//     draggedPiece = null;
+// }
+
+// document.addEventListener("touchend", function (e) {
+//     if (!draggedPiece || !ghostPiece) return;
+
+//     const touch = e.changedTouches[0];
+//     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+//     const emptyBox = dropTarget?.closest(".emptyBox");
+//     const board = document.getElementById("board");
+
+//     if (emptyBox && board.contains(emptyBox) && !emptyBox.querySelector("img")) {
+//         emptyBox.appendChild(draggedPiece);
+//     } else {
+//         document.getElementById("puzzleBox").appendChild(draggedPiece);
+//     }
+
+//     cleanupGhost();
+// });
+
+// document.addEventListener("touchcancel", cleanupGhost);
+//ny test fra GPT
+let draggedPiece = null;
+let ghostPiece = null;
+let offsetX = 0;
+let offsetY = 0;
+let startX = 0;
+let startY = 0;
+
 document.addEventListener("touchstart", function (e) {
     const target = e.target.closest(".piece-img");
     if (target) {
         draggedPiece = target;
 
         const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+
         const rect = target.getBoundingClientRect();
         offsetX = touch.clientX - rect.left;
         offsetY = touch.clientY - rect.top;
 
+        // Ghost
         ghostPiece = target.cloneNode(true);
         ghostPiece.style.position = "fixed";
         ghostPiece.style.left = (touch.clientX - offsetX) + "px";
@@ -131,7 +200,7 @@ document.addEventListener("touchstart", function (e) {
         ghostPiece.style.zIndex = "9999";
         document.body.appendChild(ghostPiece);
 
-        e.preventDefault(); // Prevent scroll
+        e.preventDefault(); // stop scrolling
     }
 }, { passive: false });
 
@@ -140,7 +209,7 @@ document.addEventListener("touchmove", function (e) {
     const touch = e.touches[0];
     ghostPiece.style.left = (touch.clientX - offsetX) + "px";
     ghostPiece.style.top = (touch.clientY - offsetY) + "px";
-    e.preventDefault(); // Prevent scroll
+    e.preventDefault();
 }, { passive: false });
 
 function cleanupGhost() {
@@ -153,13 +222,25 @@ document.addEventListener("touchend", function (e) {
     if (!draggedPiece || !ghostPiece) return;
 
     const touch = e.changedTouches[0];
+    const dx = Math.abs(touch.clientX - startX);
+    const dy = Math.abs(touch.clientY - startY);
+
+    // 🔹 1. Hvis brukeren bare trykket (ikke dratt langt nok) → gjør ingenting
+    if (dx < 10 && dy < 10) {
+        cleanupGhost();
+        return;
+    }
+
+    // 🔹 2. Finn drop-target
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
     const emptyBox = dropTarget?.closest(".emptyBox");
     const board = document.getElementById("board");
 
     if (emptyBox && board.contains(emptyBox) && !emptyBox.querySelector("img")) {
+        // ✅ Legg i en tom grid-rute
         emptyBox.appendChild(draggedPiece);
     } else {
+        // ❌ Ellers tilbake til esken
         document.getElementById("puzzleBox").appendChild(draggedPiece);
     }
 
