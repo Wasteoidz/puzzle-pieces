@@ -225,24 +225,21 @@ document.addEventListener("touchend", function (e) {
     const dx = Math.abs(touch.clientX - startX);
     const dy = Math.abs(touch.clientY - startY);
 
-    // 1. Sjekk om det var et trykk og ikke et drag
+    // 1. Hvis bare et trykk (ikke dra) → ikke flytt
     if (dx < 10 && dy < 10) {
         cleanupGhost();
         return;
     }
 
-    // 2. Finn elementet under fingeren
+    // 2. Sjekk dropTarget
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
 
-    // Vi vil bare tillate dropp hvis brukeren faktisk slipper på selve tomruten
+    // 3. Tillat kun dropp på en TOM emptyBox
     if (dropTarget && dropTarget.classList.contains("emptyBox") && !dropTarget.querySelector("img")) {
         dropTarget.appendChild(draggedPiece);
-    } else {
-        // Hvis ikke -> tilbake i puzzleBox
-        document.getElementById("puzzleBox").appendChild(draggedPiece);
     }
+    // ❌ Hvis ikke: gjør INGENTING → brikken blir stående der den var
 
     cleanupGhost();
 });
-
 document.addEventListener("touchcancel", cleanupGhost);
