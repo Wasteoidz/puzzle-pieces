@@ -218,6 +218,56 @@ function cleanupGhost() {
     draggedPiece = null;
 }
 
+let draggedPiece = null;
+let ghostPiece = null;
+let offsetX = 0;
+let offsetY = 0;
+let startX = 0;
+let startY = 0;
+
+document.addEventListener("touchstart", function (e) {
+    const target = e.target.closest(".piece-img");
+    if (target) {
+        draggedPiece = target;
+
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+
+        const rect = target.getBoundingClientRect();
+        offsetX = touch.clientX - rect.left;
+        offsetY = touch.clientY - rect.top;
+
+        // Ghost
+        ghostPiece = target.cloneNode(true);
+        ghostPiece.style.position = "fixed";
+        ghostPiece.style.left = (touch.clientX - offsetX) + "px";
+        ghostPiece.style.top = (touch.clientY - offsetY) + "px";
+        ghostPiece.style.width = rect.width + "px";
+        ghostPiece.style.height = rect.height + "px";
+        ghostPiece.style.opacity = "0.7";
+        ghostPiece.style.pointerEvents = "none";
+        ghostPiece.style.zIndex = "9999";
+        document.body.appendChild(ghostPiece);
+
+        e.preventDefault(); // stop scrolling
+    }
+}, { passive: false });
+
+document.addEventListener("touchmove", function (e) {
+    if (!ghostPiece) return;
+    const touch = e.touches[0];
+    ghostPiece.style.left = (touch.clientX - offsetX) + "px";
+    ghostPiece.style.top = (touch.clientY - offsetY) + "px";
+    e.preventDefault();
+}, { passive: false });
+
+function cleanupGhost() {
+    if (ghostPiece) ghostPiece.remove();
+    ghostPiece = null;
+    draggedPiece = null;
+}
+
 document.addEventListener("touchend", function (e) {
     if (!draggedPiece || !ghostPiece) return;
 
@@ -226,7 +276,7 @@ document.addEventListener("touchend", function (e) {
     const dy = Math.abs(touch.clientY - startY);
 
     // 🔹 1. Hvis brukeren bare trykket (ikke dratt langt nok) → gjør ingenting
-    if (dx < 25 && dy < 25) {
+    if (dx < 10 && dy < 10) {
         cleanupGhost();
         return;
     }
