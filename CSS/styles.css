@@ -9,14 +9,14 @@ body {
     display: flex;               
     justify-content: center;     
     align-items: flex-start;     
-    gap: 5px;
+    gap: 10px;
     padding-top: 5px;
 }
 
 .board {
-    height: 620px;
-    width: 620px;
-    background-color:pink;
+    height: 600px;
+    width: 600px;
+    background-color:rgb(169, 50, 248);
     border: solid 5px black;
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -26,8 +26,8 @@ body {
 }
 
 .puzzleBox {
-    height: 620px;
-    width: 620px;
+    height: 600px;
+    width: 600px;
     background-color: cyan;
     border: solid 5px black;
     display: grid;
@@ -47,7 +47,6 @@ body {
 }
 
 .emptyBox {
-    background-color: rgb(98, 43, 226);
     height: 100px;
     width: 100px;
     display: grid;
