@@ -63,6 +63,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 620px;
+    margin-top: -50px;
 }
 .pusleKnapper {
     margin-top: 5px;
@@ -70,4 +72,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 5px;
+}
+
+.knapp {
+    border-radius: 10px;
+    
 }

@@ -31,8 +31,9 @@ function showView(){
         <button class="knapp" onclick="getPieces(36,'olaf')">&#9924; Olaf &#9924;</button>
         <button class="knapp" onclick="getPieces(36,'biler')">&#128664; Biler &#128664;</button>
     </div>
-    
-    <button class="jukseKnapp" onclick="compleetePuzzle()">fusk!</button>
+    <div class="jukseKnapp">
+        <button class="knapp" onclick="compleetePuzzle()">&#128272; Forhåndsvisning &#128272;</button>
+    </div> 
         
     `;
 }
@@ -66,6 +67,9 @@ function resetPiece() {  //finne en måte å putt biten tilbake i esken//
 }
 
 function compleetePuzzle() { 
+    if (currentPuzzleFolder==null) {
+
+    } else {
     document.getElementById('board').innerHTML = "";
     for (let pieceNumber = 1; pieceNumber <= 36; pieceNumber++) {
         document.getElementById('board').innerHTML += `
@@ -79,6 +83,7 @@ function compleetePuzzle() {
                 ondragstart="drag(event)"
             />
         </div>`;
+    }
     }
 }
 
