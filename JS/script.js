@@ -13,9 +13,12 @@ function showView(){
         <div class="board" 
         id="board" 
         ondragover="allowDrop(event)" 
-        ondrop="drop(event)"
-        ><h1 class="tempText"id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1></div>
-        <div class="puzzleBox" id="puzzleBox"><h1 class="tempText" id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1></div> <br/>
+        ondrop="drop(event)">
+            <h1 class="tempText"id="tempPuzzleText"> &#127775;Her skal det pusles! &#127775;</h1>
+        </div>
+        <div class="puzzleBox" id="puzzleBox">
+            <h1 class="tempText" id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1>
+        </div> <br/>
     </div>
     <div class="pusleKnapper"> 
         <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
@@ -30,6 +33,13 @@ function showView(){
         <button class="knapp" onclick="getPieces(36,'frost')">&#10052; Frost &#10052;</button>
         <button class="knapp" onclick="getPieces(36,'olaf')">&#9924; Olaf &#9924;</button>
         <button class="knapp" onclick="getPieces(36,'biler')">&#128664; Biler &#128664;</button>
+    </div>
+        <div class="pusleKnapper"> 
+        <button class="knapp" onclick="getPieces(36,'fantorangen')">🧡 Fantorangen 🐘</button>
+        <button class="knapp" onclick="getPieces(36,'fantus')">💜 Fantus 🐘</button>
+        <button class="knapp" onclick="getPieces(36,'pivi')">🩵 Pivi 🐘</button>
+        <button class="knapp" onclick="getPieces(36,'gabby2')">&#128571; Gabby 2 &#128571;</button>
+        <button class="knapp" onclick="getPieces(36,'pawPatrol2')">&#128054; Paw Patrol 2 &#128054;</button>
     </div>
     <div class="jukseKnapp">
         <button class="knapp" onclick="compleetePuzzle()">&#128272; Forhåndsvisning &#128272;</button>
@@ -62,15 +72,16 @@ function getPieces(times, puzzleFolder) {
  
 }
 
-function resetPiece() {  //finne en måte å putt biten tilbake i esken//
 
-}
 
 function compleetePuzzle() { 
     if (currentPuzzleFolder==null) {
-
     } else {
     document.getElementById('board').innerHTML = "";
+    document.getElementById('puzzleBox').innerHTML = `
+    <h1 class="tempText" id="tempBoxText">😁Slik skal det se ut😁</h1>
+    `;
+
     for (let pieceNumber = 1; pieceNumber <= 36; pieceNumber++) {
         document.getElementById('board').innerHTML += `
         <div class="emptyBox">
@@ -116,7 +127,19 @@ function drop(ev) {
     if (!ev.currentTarget.querySelector('img')) {
         ev.currentTarget.append(document.getElementById(data));
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
