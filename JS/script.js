@@ -1,6 +1,6 @@
 //Model
+const spill = document.getElementById('app');
 let currentPuzzleFolder = null;
-
 
 
 
@@ -8,7 +8,7 @@ let currentPuzzleFolder = null;
 //   View
 showView()
 function showView(){
-    document.getElementById('app').innerHTML = /*html*/ `
+    spill.innerHTML = /*html*/ `
     <div class="game">
         <div class="board" 
         id="board" 
