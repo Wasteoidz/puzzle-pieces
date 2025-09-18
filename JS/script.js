@@ -72,6 +72,15 @@ function getPieces(times, puzzleFolder) {
  
 }
 
+function checkPuzzle() { //work in progress//
+    const boardPieces = document.querySelectorAll("#board .piece-img");
+    if (boardPieces.length === 36 &&
+        Array.from(boardPieces).every((piece, index) => piece.id === `piece-${index + 1}`)) 
+        { document.getElementById('puzzleBox').innerHTML += `
+                        <h1 class="tempText">🤩Bra jobba!🤩</h1>
+            `;
+        }
+    }
 
 
 function compleetePuzzle() { 
@@ -79,8 +88,8 @@ function compleetePuzzle() {
     } else {
     document.getElementById('board').innerHTML = "";
     document.getElementById('puzzleBox').innerHTML = `
-    <h1 class="tempText" id="tempBoxText">😁Slik skal det se ut😁</h1>
-    `;
+        <h1 class="tempText" id="tempBoxText">😁Slik skal det se ut😁</h1>
+        `;
 
     for (let pieceNumber = 1; pieceNumber <= 36; pieceNumber++) {
         document.getElementById('board').innerHTML += `
@@ -113,6 +122,8 @@ function randomPiece(puzzleFolder) {
         />`;    
 }
 
+
+//Drag og drop funskjoner//
 function allowDrop(ev) {
     ev.preventDefault();
 }
