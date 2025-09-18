@@ -8,7 +8,7 @@ let currentPuzzleFolder = null;
 //   View
 showView()
 function showView(){
-    document.getElementById('app').innerHTML = /**html**/ `
+    document.getElementById('app').innerHTML = /*html*/ `
     <div class="game">
         <div class="board" 
         id="board" 
