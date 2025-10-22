@@ -19,40 +19,51 @@ function showView(){
         <div class="puzzleBox" id="puzzleBox">
             <h1 class="tempText" id="tempBoxText">&#128525; Her er puslebitene &#128525;</h1>
         </div> <br/>
-    </div>
-    <div class="pusleKnapper"> 
-        <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
-        <button class="knapp" onclick="getPieces(36,'bluey')">&#128062 Bluey &#128062</button>
-        <button class="knapp" onclick="getPieces(36,'peppaPig')">&#128055 Peppa Gris &#128055</button>
-        <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
-        <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button>
-    </div>
-    <div class="pusleKnapper"> 
-        <button class="knapp" onclick="getPieces(36,'minions')">&#129535; Minions &#129535;</button>
-        <button class="knapp" onclick="getPieces(36,'moana')">&#128131; Vaiana &#127821;</button>
-        <button class="knapp" onclick="getPieces(36,'frost')">&#10052; Frost &#10052;</button>
-        <button class="knapp" onclick="getPieces(36,'olaf')">&#9924; Olaf &#9924;</button>
-        <button class="knapp" onclick="getPieces(36,'biler')">&#128664; Biler &#128664;</button>
-    </div>
-        <div class="pusleKnapper"> 
-        <button class="knapp" onclick="getPieces(36,'fantorangen')">🧡 Fantorangen 🐘</button>
-        <button class="knapp" onclick="getPieces(36,'fantus')">💜 Fantus 🐘</button>
-        <button class="knapp" onclick="getPieces(36,'pivi')">🩵 Pivi 🐘</button>
-        <button class="knapp" onclick="getPieces(36,'gabby2')">&#128571; Gabby 2 &#128571;</button>
-        <button class="knapp" onclick="getPieces(36,'pawPatrol2')">&#128054; Paw Patrol 2 &#128054;</button>
-    </div>
-        </div>
-        <div class="pusleKnapper"> 
-        <button class="knapp" onclick="getPieces(36,'minions2')">&#129535; Minions2 &#129535;</button>
-        <button class="knapp" onclick="getPieces(36,'sabeltann')">🏴‍☠️Kaptein Sabeltann🏴‍☠️</button>
-        <button class="knapp" onclick="getPieces(36,'gds')">Gjør Det Sjøl!</button>
-        <button class="knapp" onclick="getPieces(36,'mumintrollet')">⛄Mumintrollet 🤍</button>
-        <button class="knapp" onclick="getPieces(36,'paladin')">❤️‍🔥Pappa Spill❤️‍🔥</button>
-    </div>
-    <div class="jukseKnapp">
-        <button class="knapp" onclick="compleetePuzzle()">&#128272; Forhåndsvisning &#128272;</button>
     </div> 
-        
+    
+    <div class="pusleKnapper"> 
+        <div class="pusleKnapperV">
+            <button class="knapp" onclick="getPieces(36,'unicorn')">&#127752; Enhjørning &#129412;</button>
+            <button class="knapp" onclick="getPieces(36,'bluey')">&#128062 Bluey &#128062</button>
+            <button class="knapp" onclick="getPieces(36,'peppaPig')">&#128055 Peppa Gris &#128055</button>
+            <button class="knapp" onclick="getPieces(36,'gabby')">&#128571; Gabby &#128571;</button>
+            <button class="knapp" onclick="getPieces(36,'pawPatrol')">&#128054; Paw Patrol &#128054;</button>
+
+            <button class="knapp" onclick="getPieces(36,'minions')">&#129535; Minions &#129535;</button>
+            <button class="knapp" onclick="getPieces(36,'moana')">&#128131; Vaiana &#127821;</button>
+            <button class="knapp" onclick="getPieces(36,'frost')">&#10052; Frost &#10052;</button>
+            <button class="knapp" onclick="getPieces(36,'olaf')">&#9924; Olaf &#9924;</button>
+            <button class="knapp" onclick="getPieces(36,'biler')">&#128664; Biler &#128664;</button>
+
+            <button class="knapp" onclick="getPieces(36,'fantorangen')">🧡 Fantorangen 🐘</button>
+            <button class="knapp" onclick="getPieces(36,'fantus')">💜 Fantus 🐘</button>
+            <button class="knapp" onclick="getPieces(36,'pivi')">🩵 Pivi 🐘</button>
+            <button class="knapp" onclick="getPieces(36,'gabby2')">&#128571; Gabby 2 &#128571;</button>
+            <button class="knapp" onclick="getPieces(36,'pawPatrol2')">&#128054; Paw Patrol 2 &#128054;</button>
+        </div>
+        <div class="jukseKnapp">
+        <button class="knappJ" onclick="compleetePuzzle()"><h2>🔏</h2></button>
+        </div>
+        <div class="pusleKnapperH">
+            <button class="knapp" onclick="getPieces(36,'minions2')">&#129535; Minions2 &#129535;</button>
+            <button class="knapp" onclick="getPieces(36,'sabeltann')">🏴‍☠️Kaptein Sabeltann🏴‍☠️</button>
+            <button class="knapp" onclick="getPieces(36,'gds')">Gjør Det Sjøl!</button>
+            <button class="knapp" onclick="getPieces(36,'mumintrollet')">⛄Mumintrollet 🤍</button>
+            <button class="knapp" onclick="getPieces(36,'paladin')">❤️‍🔥Pappa Spill❤️‍🔥</button>
+    
+            <button class="knapp" onclick="getPieces(36,'minions2')">&#129535; Minions2 &#129535;</button>
+            <button class="knapp" onclick="getPieces(36,'sabeltann')">🏴‍☠️Kaptein Sabeltann🏴‍☠️</button>
+            <button class="knapp" onclick="getPieces(36,'gds')">Gjør Det Sjøl!</button>
+            <button class="knapp" onclick="getPieces(36,'mumintrollet')">⛄Mumintrollet 🤍</button>
+            <button class="knapp" onclick="getPieces(36,'paladin')">❤️‍🔥Pappa Spill❤️‍🔥</button>
+
+            <button class="knapp" onclick="getPieces(36,'minions2')">test test</button>
+            <button class="knapp" onclick="getPieces(36,'minions2')">test test</button>
+            <button class="knapp" onclick="getPieces(36,'minions2')">test test</button>
+            <button class="knapp" onclick="getPieces(36,'minions2')">test test</button>
+            <button class="knapp" onclick="getPieces(36,'minions2')">test test</button>
+        </div>
+    </div>
     `;
 }
 

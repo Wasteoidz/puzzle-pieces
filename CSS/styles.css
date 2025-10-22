@@ -1,8 +1,11 @@
 body {
-    margin: 0%;
-    height: 100%;
+    margin: 0;
+    height: 100vh;
     overflow-y: hidden;
     background-color: hotpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game { 
@@ -60,18 +63,44 @@ body {
 }
 
 .jukseKnapp {
+    background-color: rgba(0, 0, 0, 0);
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-right: 620px;
-    margin-top: -50px;
+    width: 55px;
+    margin: 10px;
 }
+
+.knappJ {
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0);   
+}
+
 .pusleKnapper {
-    margin-top: 5px;
-    margin-left: 615px;
+    height: 200px;
+    width: 1230px;
     display: flex;
-    justify-content: center;
+}
+
+.pusleKnapperV {
+    height: 150px;
+    width: 600px;
+    margin-top: 5px;
     gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+.pusleKnapperH {
+    height: 150px;
+    width: 600px;
+    margin-top: 5px;
+    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3,1fr);
 }
 
 .knapp {
