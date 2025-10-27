@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+/**  Spillet  **/
 .game { 
     display: flex;               
     justify-content: center;     
@@ -62,6 +62,8 @@ body {
     width: 100px;
 }
 
+
+/**  knapper  **/
 .jukseKnapp {
     background-color: rgba(0, 0, 0, 0);
     display: flex;
@@ -78,29 +80,29 @@ body {
 }
 
 .pusleKnapper {
-    height: 200px;
+    height: 100px;
     width: 1230px;
     display: flex;
 }
 
 .pusleKnapperV {
-    height: 150px;
+    height: 50px;
     width: 600px;
     margin-top: 5px;
     gap: 5px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(5,auto);
+    grid-template-rows: repeat(3,auto);
 }
 
 .pusleKnapperH {
-    height: 150px;
+    height: 50px;
     width: 600px;
     margin-top: 5px;
     gap: 5px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(5,auto);
+    grid-template-rows: repeat(3,auto);
 }
 
 .knapp {
